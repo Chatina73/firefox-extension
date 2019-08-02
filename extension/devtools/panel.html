@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title data-str="extension_name"></title>
+    <link rel="stylesheet" href="/devtools/panel.css">
+  </head>
+  <body role="application">
+    <div role="toolbar">
+      <aria-tablist>
+        <aria-tab id="news-tab" aria-controls="news-panel" data-str="news_tab"></aria-tab>
+        <aria-tab id="checker-tab" aria-controls="checker-panel" data-str="checker_tab"></aria-tab>
+        <aria-tab id="reporter-tab" aria-controls="reporter-panel" data-str="reporter_tab"></aria-tab>
+        <aria-tab id="about-tab" aria-controls="about-panel" data-str="about_tab"></aria-tab>
+      </aria-tablist>
+    </div>
+    <aria-tabpanel id="news-panel" aria-labelledby="news-tab">
+      <div class="text-wrapper">
+        <div>
+          <p data-str="news_paragraph_1"></p>
+        </div>
+      </div>
+    </aria-tabpanel>
+    <aria-tabpanel id="checker-panel" aria-labelledby="checker-tab">
+      <div class="text-wrapper">
+        <div>
+          <p data-str="checker_paragraph_1"></p>
+        </div>
+      </div>
+    </aria-tabpanel>
+    <aria-tabpanel id="reporter-panel" aria-labelledby="reporter-tab">
+      <div class="text-wrapper">
+        <div>
+          <p data-str="reporter_paragraph_1"></p>
+          <div class="button-container">
+            <button data-url="https://twitter.com/intent/tweet?text=@fxsitecompat&amp;related=fxsitecompat" data-str="twitter"></button>
+            <button data-url="https://twitter.com/messages/compose?recipient_id=1707307399" data-str="twitter_dm"></button>
+            <button data-url="https://github.com/fxsitecompat/reports/issues/new" data-str="github"></button>
+            <button data-url="mailto:bugs@fxsitecompat.dev" data-str="email"></button>
+          </div>
+        </div>
+      </div>
+    </aria-tabpanel>
+    <aria-tabpanel id="about-panel" aria-labelledby="about-tab">
+      <div class="text-wrapper">
+        <div>
+          <p data-str="about_paragraph_1"></p>
+          <p><small data-str="about_legal"></small></p>
+        </div>
+      </div>
+    </aria-tabpanel>
+    <script src="/devtools/util.js"></script>
+    <script src="/devtools/widgets.js"></script>
+    <script src="/devtools/panel.js"></script>
+  </body>
+</html>

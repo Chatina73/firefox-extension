@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+  "name": "__MSG_extension_name__",
+  "short_name": "__MSG_extension_short_name__",
+  "description": "__MSG_extension_description__",
+  "author": "__MSG_extension_author__",
+  "homepage_url": "https://www.fxsitecompat.dev/",
+  "version": "1.0",
+  "icons": {
+    "48": "/images/icon.png",
+    "96": "/images/icon@2x.png"
+  },
+  "default_locale": "en_CA",
+  "devtools_page": "/devtools/page.html"
+}

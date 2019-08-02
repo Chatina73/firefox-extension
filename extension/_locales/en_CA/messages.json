@@ -1,0 +1,65 @@
+{
+  "extension_name": {
+    "message": "Firefox Site Compatibility"
+  },
+  "extension_short_name": {
+    "message": "FxSiteCompat"
+  },
+  "extension_description": {
+    "message": "A handy tool for web developers to learn and report site compatibility issues directly within Firefox Developer Tools."
+  },
+  "extension_author": {
+    "message": "Firefox Site Compatibility WG"
+  },
+  "panel_title": {
+    "message": "Compatibility"
+  },
+  "news_tab": {
+    "message": "News"
+  },
+  "news_paragraph_1": {
+    "message": "Loading news feed..."
+  },
+  "feed_endpoint": {
+    "message": "https://www.fxsitecompat.dev/en-CA/"
+  },
+  "your_version": {
+    "message": "Your version"
+  },
+  "feed_fetch_error": {
+    "message": "Couldn’t load news feed. Please try again later."
+  },
+  "checker_tab": {
+    "message": "Checker <small>In Development</small>"
+  },
+  "checker_paragraph_1": {
+    "message": "Given a dataset based on <a href=\"https://www.fxsitecompat.dev/en-CA/docs/\" target=\"fxsitecompat\">our 800+ articles</a>, we are developing a site compatibility checker that helps you find potential issues on your site, including use of deprecated or removed features. The beta version is coming later this year. Stay tuned!"
+  },
+  "reporter_tab": {
+    "message": "Reporter"
+  },
+  "reporter_paragraph_1": {
+    "message": "Let us know if you found a website — even your own — that doesn’t work properly only in Firefox! We are happy to investigate the issue and take a possible action to solve it. We can be reached by:"
+  },
+  "twitter": {
+    "message": "Twitter"
+  },
+  "twitter_dm": {
+    "message": "Twitter DM"
+  },
+  "github": {
+    "message": "GitHub"
+  },
+  "email": {
+    "message": "Email"
+  },
+  "about_tab": {
+    "message": "About"
+  },
+  "about_paragraph_1": {
+    "message": "The <a href=\"https://www.fxsitecompat.dev/en-CA/about/\" target=\"fxsitecompat\">Firefox Site Compatibility Working Group</a> is an independent community initiative tackling the backward compatibility and regressions in Firefox. We are creating this browser extension as a handy all-in-one tool for web developers to learn, check and report site compatibility issues directly within Firefox Developer Tools. The source code is available on <a href=\"https://github.com/fxsitecompat/firefox-extension\">GitHub</a>. Your feedback is always welcome!"
+  },
+  "about_legal": {
+    "message": "Copyright © 2019 Kohei Yoshino and individual contributors. Mozilla and Firefox are trademarks of the Mozilla Foundation. This initiative is not affiliated with Mozilla."
+  }
+}

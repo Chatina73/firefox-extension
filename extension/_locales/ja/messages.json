@@ -1,0 +1,65 @@
+{
+  "extension_name": {
+    "message": "Firefox サイト互換性情報"
+  },
+  "extension_short_name": {
+    "message": "FxSiteCompat"
+  },
+  "extension_description": {
+    "message": "Firefox の開発者ツール内で直接サイト互換性問題を把握、報告できる、ウェブ開発者のための便利なツール。"
+  },
+  "extension_author": {
+    "message": "Firefox サイト互換性ワーキンググループ"
+  },
+  "panel_title": {
+    "message": "互換性"
+  },
+  "news_tab": {
+    "message": "ニュース"
+  },
+  "news_paragraph_1": {
+    "message": "ニュースフィードを読み込んでいます..."
+  },
+  "feed_endpoint": {
+    "message": "https://www.fxsitecompat.dev/ja/"
+  },
+  "your_version": {
+    "message": "あなたのバージョン"
+  },
+  "feed_fetch_error": {
+    "message": "ニュースフィードを読み込めませんでした。また後で試してください。"
+  },
+  "checker_tab": {
+    "message": "チェッカー <small>開発中</small>"
+  },
+  "checker_paragraph_1": {
+    "message": "<a href=\"https://www.fxsitecompat.dev/ja/docs/\" target=\"fxsitecompat\">私たちがまとめてきた 800 ページ以上の記事</a> を元にしたデータセットを用いて、廃止予定となったり削除されたりした機能が使われていないかどうかなど、あなたのサイト内の潜在的な問題を発見するのに役立つサイト互換性チェッカーを開発しています。ベータ版は今年後半に公開予定です。お楽しみに！"
+  },
+  "reporter_tab": {
+    "message": "レポーター"
+  },
+  "reporter_paragraph_1": {
+    "message": "Firefox だけで適切に動作しないウェブサイトを見つけた場合は、あなた自身のサイトでも構いませんが、ぜひ私たちに知らせてください！ 進んで問題を調査し、解決のために可能な措置を講じたいと思います。以下のいずれかの方法で報告できます:"
+  },
+  "twitter": {
+    "message": "Twitter"
+  },
+  "twitter_dm": {
+    "message": "Twitter DM"
+  },
+  "github": {
+    "message": "GitHub"
+  },
+  "email": {
+    "message": "メール"
+  },
+  "about_tab": {
+    "message": "概要"
+  },
+  "about_paragraph_1": {
+    "message": "<a href=\"https://www.fxsitecompat.dev/ja/about/\" target=\"fxsitecompat\">Firefox サイト互換性ワーキンググループ</a> は、Firefox の後方互換性とリグレッションに取り組んでいる独立したコミュニティイニシアチブです。私たちは、Firefox の開発者ツール内で直接サイト互換性問題を把握、確認、報告できる便利なオールインワンツールとしてこのブラウザー拡張機能を作成しています。ソースコードは <a href=\"https://github.com/fxsitecompat/firefox-extension\">GitHub</a> で公開しています。フィードバックはいつでも歓迎します！"
+  },
+  "about_legal": {
+    "message": "Copyright © 2019 Kohei Yoshino and individual contributors. Mozilla と Firefox は Mozilla Foundation の商標です。このイニシアチブは Mozilla とは無関係です。"
+  }
+}
