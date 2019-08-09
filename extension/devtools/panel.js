@@ -29,10 +29,10 @@ class NewsPanel {
 
         return `
           <section>
-            <hgroup>
-              <h3>Firefox ${version}</h3>
-              ${channel ? `<h4>${HTML.escape(channel)}</h4>` : ''}
-              ${version === Browser.version ? `<h5>${_('your_version')}</h5>` : ''}
+            <hgroup role="heading" aria-level="3">
+              <h3 role="none">Firefox ${version}</h3>
+              ${channel ? `<h4 role="none">${HTML.escape(channel)}</h4>` : ''}
+              ${version === Browser.version ? `<h5 role="none">${_('your_version')}</h5>` : ''}
             </hgroup>
             <ul>${[...$feed.querySelectorAll('entry')].map($entry => `
               <li>
