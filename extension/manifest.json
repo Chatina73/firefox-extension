@@ -5,7 +5,7 @@
   "description": "__MSG_extension_description__",
   "author": "__MSG_extension_author__",
   "homepage_url": "https://www.fxsitecompat.dev/",
-  "version": "1.1",
+  "version": "1.2",
   "icons": {
     "48": "/images/icon.png",
     "96": "/images/icon@2x.png"
