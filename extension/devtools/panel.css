@@ -13,6 +13,7 @@
   --button-background-color--focus: #DADADA;
   --button-background-color--active: #CECECE;
   --link-color: #0060DF;
+  --scrollbar-color: auto;
 }
 
 :root[data-theme="dark"] {
@@ -30,6 +31,11 @@
   --button-background-color--focus: #59595C;
   --button-background-color--active: #636367;
   --link-color: #75BFFF;
+  --scrollbar-color: #737373 #38383D;
+}
+
+:root[data-platform="Win32"] {
+  --body-font-size: 12px;
 }
 
 body {
@@ -41,12 +47,13 @@ body {
   overflow: hidden;
   margin: 0;
   font-family: system-ui, -apple-system, "Segoe UI", Ubuntu, sans-serif;
-  font-size: 14px;
+  font-size: var(--body-font-size, 14px);
   line-height: 1.2;
   cursor: default;
   color: var(--body-foreground-color);
   background-color: var(--body-background-color);
   user-select: none;
+  scrollbar-color: var(--scrollbar-color);
 }
 
 a {
@@ -125,7 +132,7 @@ aria-tab small {
 
 aria-tabpanel {
   flex: auto;
-  overflow: scroll;
+  overflow: auto;
   outline: 0;
   margin: 0;
   background-color: var(--panel-background-color);

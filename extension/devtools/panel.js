@@ -80,6 +80,9 @@ window.addEventListener('DOMContentLoaded', () => {
   set_theme(browser.devtools.panels.themeName);
   browser.devtools.panels.onThemeChanged.addListener(set_theme);
 
+  // Use the user's platform info for better styling
+  document.documentElement.dataset.platform = navigator.platform;
+
   // Localize strings
   document.querySelectorAll('[data-str]').forEach($element => {
     $element.innerHTML = browser.i18n.getMessage($element.dataset.str);
