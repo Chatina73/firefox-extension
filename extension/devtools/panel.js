@@ -70,12 +70,6 @@ class ReporterPanel {
    */
   constructor() {
     this.$panel = document.querySelector('#reporter-panel');
-
-    this.$panel.querySelectorAll('button').forEach($button => {
-      $button.addEventListener('click', () => {
-        window.open($button.dataset.url, 'fxsitecompat');
-      });
-    });
   }
 };
 

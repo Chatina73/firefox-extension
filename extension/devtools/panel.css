@@ -138,7 +138,7 @@ aria-tabpanel {
   margin-top: 16px;
 }
 
-button {
+a.button {
   display: inline-block;
   margin: 4px;
   border: 0;
@@ -150,14 +150,15 @@ button {
   background-color: var(--button-background-color);
   font-size: inherit;
   white-space: nowrap;
+  text-decoration: none;
 }
 
-button:hover,
-button:focus {
+a.button:hover,
+a.button:focus {
   background-color: var(--button-background-color--focus);
 }
 
-button:active {
+a.button:active {
   background-color: var(--button-background-color--active);
 }
 
