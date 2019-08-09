@@ -24,11 +24,16 @@ class NewsPanel {
       const _ = key => browser.i18n.getMessage(key);
 
       this.$panel.innerHTML = `${feeds.map($feed => {
-        const version = Number($feed.querySelector('feed > title').textContent);
+        const version = Number($feed.querySelector('feed > title').textContent.match(/\d+/)[0]);
+        const channel = $feed.querySelector('feed > subtitle').textContent;
 
         return `
           <section>
-            <h3>Firefox ${version}${version === Browser.version ? ` <small>${_('your_version')}</small>` : ''}</h3>
+            <hgroup>
+              <h3>Firefox ${version}</h3>
+              ${channel ? `<h4>${HTML.escape(channel)}</h4>` : ''}
+              ${version === Browser.version ? `<h5>${_('your_version')}</h5>` : ''}
+            </hgroup>
             <ul>${[...$feed.querySelectorAll('entry')].map($entry => `
               <li>
                 <a href="${HTML.escape($entry.querySelector('link').getAttribute('href'))}?src=firefox-extension"

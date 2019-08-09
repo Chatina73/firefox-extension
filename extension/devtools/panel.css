@@ -191,17 +191,23 @@ a.button:active {
   padding-top: 32px;
 }
 
-#news-panel h3 {
+#news-panel hgroup h3 {
   flex: none;
   margin: 0;
   width: 160px;
   font-size: 20px;
 }
 
-#news-panel h3 small {
-  display: block;
+#news-panel hgroup h4 {
+  margin: 4px 0;
   font-size: 12px;
   font-weight: normal;
+  font-style: italic;
+}
+
+#news-panel hgroup h5 {
+  margin: 4px 0;
+  font-size: 12px;
 }
 
 #news-panel li span {
