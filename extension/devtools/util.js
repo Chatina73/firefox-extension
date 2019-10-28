@@ -23,6 +23,12 @@ class HTML {
    * @returns {String} Escaped string.
    */
   static escape(string) {
-    return string.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;');
+    return string.replace(/[&<>"']/g, char => `&${{
+      '&': 'amp',
+      '<': 'lt',
+      '>': 'gt',
+      '"': 'quot',
+      '\'': 'apos',
+    }[char]};`);
   }
 };
