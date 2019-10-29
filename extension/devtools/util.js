@@ -21,14 +21,16 @@ class HTML {
    * Escape several special characters in HTML.
    * @param {String} string Input string.
    * @returns {String} Escaped string.
+   * @see https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html
    */
   static escape(string) {
-    return string.replace(/[&<>"']/g, char => `&${{
+    return string.replace(/[&<>"'\/]/g, char => `&${{
       '&': 'amp',
       '<': 'lt',
       '>': 'gt',
       '"': 'quot',
       '\'': 'apos',
+      '/': 'sol',
     }[char]};`);
   }
 };
