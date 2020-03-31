@@ -60,6 +60,6 @@
     "message": "The <a href=\"https://www.fxsitecompat.dev/en-CA/about/\" target=\"fxsitecompat\">Firefox Site Compatibility Working Group</a> is an independent community initiative tackling the backward compatibility and regressions in Firefox. We are creating this browser extension as a handy all-in-one tool for web developers to learn, check and report site compatibility issues directly within Firefox Developer Tools. The source code is available on <a href=\"https://github.com/fxsitecompat/firefox-extension\" target=\"fxsitecompat\">GitHub</a>, and we are also on <a href=\"https://twitter.com/FxSiteCompat\" target=\"fxsitecompat\">Twitter</a>. Your feedback is always welcome!"
   },
   "about_legal": {
-    "message": "Copyright © 2019 Kohei Yoshino and individual contributors. Mozilla and Firefox are trademarks of the Mozilla Foundation. This initiative is not affiliated with Mozilla."
+    "message": "Copyright © 2020 Kohei Yoshino and individual contributors. Mozilla and Firefox are trademarks of the Mozilla Foundation. This initiative is not affiliated with Mozilla."
   }
 }

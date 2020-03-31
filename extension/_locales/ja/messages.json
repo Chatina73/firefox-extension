@@ -60,6 +60,6 @@
     "message": "<a href=\"https://www.fxsitecompat.dev/ja/about/\" target=\"fxsitecompat\">Firefox サイト互換性ワーキンググループ</a> は、Firefox の後方互換性とリグレッションに取り組んでいる独立したコミュニティイニシアチブです。私たちは、Firefox の開発者ツール内で直接サイト互換性問題を把握、確認、報告できる便利なオールインワンツールとしてこのブラウザー拡張機能を作成しています。ソースコードは <a href=\"https://github.com/fxsitecompat/firefox-extension\" target=\"fxsitecompat\">GitHub</a> で公開しており、私たちは <a href=\"https://twitter.com/FxSiteCompat\" target=\"fxsitecompat\">Twitter</a> にもいます。フィードバックはいつでも歓迎します！"
   },
   "about_legal": {
-    "message": "Copyright © 2019 Kohei Yoshino and individual contributors. Mozilla と Firefox は Mozilla Foundation の商標です。このイニシアチブは Mozilla とは無関係です。"
+    "message": "Copyright © 2020 Kohei Yoshino and individual contributors. Mozilla と Firefox は Mozilla Foundation の商標です。このイニシアチブは Mozilla とは無関係です。"
   }
 }
