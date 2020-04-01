@@ -1,4 +1,7 @@
 {
+  "locale": {
+    "message": "en-CA"
+  },
   "extension_name": {
     "message": "Site Compatibility Tools"
   },
@@ -18,7 +21,7 @@
     "message": "News"
   },
   "news_paragraph_1": {
-    "message": "Loading news feed..."
+    "message": "Loading the news feed..."
   },
   "feed_endpoint": {
     "message": "https://www.fxsitecompat.dev/en-CA/"
@@ -27,7 +30,10 @@
     "message": "Your version"
   },
   "feed_fetch_error": {
-    "message": "Couldn’t load news feed. Please try again later."
+    "message": "Couldn’t load the news feed. Please try again later."
+  },
+  "feed_fetch_offline": {
+    "message": "You’re currently offline. Go online to load the news feed."
   },
   "checker_tab": {
     "message": "Checker <small>In Development</small>"

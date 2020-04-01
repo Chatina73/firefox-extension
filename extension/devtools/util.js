@@ -33,4 +33,17 @@ class HTML {
       '/': 'sol',
     }[char]};`);
   }
+
+  /**
+   * Remove any HTML tags from the input.
+   * @param {String} string Input string.
+   * @returns {String} Sanitized string.
+   */
+  static strip_tags(string) {
+    const $div = document.createElement('div');
+
+    $div.innerHTML = string;
+
+    return $div.textContent;
+  }
 };

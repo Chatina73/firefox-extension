@@ -175,38 +175,46 @@ a.button:active {
 
 .text-wrapper > div {
   margin: 32px;
-  width: 768px;
+}
+
+.row {
+  display: flex;
+}
+
+.row > * {
+  flex: auto;
+}
+
+#news-panel .text-wrapper {
+  text-align: center;
+}
+
+#news-panel .row > * {
+  padding: 0 16px;
+  overflow: auto;
 }
 
 #news-panel section {
-  display: flex;
-  margin: 16px;
-  padding: 16px;
+  padding: 32px 16px;
 }
 
 #news-panel section:not(:first-child) {
   border-top: 1px solid var(--primary-border-color);
-  padding-top: 32px;
 }
 
-#news-panel hgroup {
-  flex: none;
-  width: 160px;
-}
-
-#news-panel hgroup h3 {
+#news-panel h3 {
   margin: 0;
   font-size: 18px;
   font-weight: 500;
 }
 
-#news-panel hgroup h4 {
+#news-panel h4 {
   margin: 4px 0 0;
   font-size: 12px;
   font-weight: normal;
 }
 
-#news-panel hgroup h5 {
+#news-panel h5 {
   margin: 4px 0 0;
   color: var(--secondary-label-color);
   font-size: 12px;
@@ -220,21 +228,47 @@ a.button:active {
   white-space: nowrap;
 }
 
-@media (max-width: 799px) {
-  #news-panel section {
+#blog header {
+  margin-bottom: 16px;
+}
+
+#blog p {
+  line-height: 1.5;
+}
+
+#releases section {
+  display: flex;
+}
+
+#releases header {
+  flex: none;
+}
+
+@media (min-width: 1024px) {
+  .text-wrapper > div {
+    width: 768px;
+  }
+
+  #news-panel .row {
+    flex-direction: row-reverse;
+    overflow: hidden;
+    height: 100%;
+  }
+
+  #releases header {
+    width: 160px;
+  }
+
+  #blog {
+    width: 40%;
+    min-width: 400px;
+    border-left: 1px solid var(--primary-border-color);
+  }
+}
+
+@media (max-width: 1023px) {
+  #news-panel .row {
     flex-direction: column;
-  }
-
-  #news-panel hgroup {
-    display: flex;
-    align-items: center;
-    margin: 0 0 16px;
-    width: auto;
-  }
-
-  #news-panel hgroup h4,
-  #news-panel hgroup h5 {
-    margin: 0 0 0 8px;
   }
 
   #news-panel h3 small {
@@ -242,7 +276,15 @@ a.button:active {
     margin-left: 8px;
   }
 
-  .text-wrapper > div {
-    width: auto;
+  #releases section {
+    flex-direction: column;
+  }
+
+  #releases header {
+    margin: 0 0 16px;
+  }
+
+  #blog {
+    border-bottom: 1px solid var(--primary-border-color);
   }
 }

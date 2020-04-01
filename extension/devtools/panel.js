@@ -1,3 +1,12 @@
+/* eslint-disable indent */
+
+/**
+ * Get a localized string by key.
+ * @param {String} key String key that can be found in messages.json.
+ * @returns {String} Localized string.
+ */
+const _ = key => browser.i18n.getMessage(key);
+
 /**
  * Implement features in the News tab panel.
  */
@@ -6,47 +15,75 @@ class NewsPanel {
    * Initialize the new NewsPanel instance.
    */
   constructor() {
-    this.endpoint = browser.i18n.getMessage('feed_endpoint');
+    this.endpoint = _('feed_endpoint');
     this.$panel = document.querySelector('#news-panel');
 
-    this.init();
+    if (navigator.onLine) {
+      this.init();
+    } else {
+      this.$panel.querySelector('p').innerHTML = _('feed_fetch_offline');
+      window.addEventListener('online', () => this.init(), { once: true });
+    }
   }
 
   /**
    * Load and render news feeds for the recent 3 versions of Firefox.
    */
   async init() {
+    const get_date = str => (new Date(str))
+      .toLocaleDateString(_('locale'), { year: 'numeric', month: 'long', day: 'numeric' })
+      .replace(/(\d+)年(\d+)月(\d+)日/g, '$1 年 $2 月 $3 日'); // Reformat Japanese date
+
     try {
-      const $feed = await this.fetch_feed('versions/index.xml');
-      const versions = [...$feed.querySelectorAll('entry > title')]
+      const $blog_feed = await this.fetch_feed('blog/index.xml');
+      const versions = [...(await this.fetch_feed('versions/index.xml')).querySelectorAll('entry > title')]
         .map($title => Number($title.textContent)).sort((a, b) => a < b).slice(0, 3);
-      const feeds = await Promise.all(versions.map(version => this.fetch_feed(`versions/${version}/index.xml`)));
-      const _ = key => browser.i18n.getMessage(key);
+      const version_feeds =
+        await Promise.all(versions.map(version => this.fetch_feed(`versions/${version}/index.xml`)));
 
-      this.$panel.innerHTML = `${feeds.map($feed => {
-        const version = Number($feed.querySelector('feed > title').textContent.match(/\d+/)[0]);
-        const channel = $feed.querySelector('feed > subtitle').textContent;
-
-        return `
-          <section>
-            <hgroup role="heading" aria-level="3">
-              <h3 role="none">Firefox ${version}</h3>
-              ${channel ? `<h4 role="none">${HTML.escape(channel)}</h4>` : ''}
-              ${version === Browser.version ? `<h5 role="none">${_('your_version')}</h5>` : ''}
-            </hgroup>
-            <ul>${[...$feed.querySelectorAll('entry')].map($entry => `
-              <li>
-                <a href="${HTML.escape($entry.querySelector('link').getAttribute('href'))}?src=firefox-extension"
-                  target="fxsitecompat">${HTML.escape($entry.querySelector('title').textContent)}</a>
-                ${[...$entry.querySelectorAll('category')].map($cat => `
-                  <span>${HTML.escape($cat.getAttribute('term'))}</span>
-                `).join('')}
-              </li>
+      this.$panel.innerHTML = `
+        <div class="row">
+          <div id="blog">
+            ${[...$blog_feed.querySelectorAll('entry')].slice(0, 1).map($entry => `
+              <section>
+                <header>
+                  <h3>${HTML.escape($entry.querySelector('title').textContent)}</h3>
+                  <h4>${HTML.escape(get_date($entry.querySelector('updated').textContent))}</h4>
+                </header>
+                <p>${HTML.escape(HTML.strip_tags($entry.querySelector('content').textContent))}</p>
+              </section>
             `).join('')}
-            </ul>
-          </section>
-        `;
-      }).join('')}`;
+          </div>
+          <div id="releases">
+            ${version_feeds.map($feed => {
+              const version = Number($feed.querySelector('feed > title').textContent.match(/\d+/)[0]);
+              const channel = $feed.querySelector('feed > subtitle').textContent;
+
+              return `
+                <section>
+                  <header>
+                    <hgroup role="heading" aria-level="3">
+                      <h3 role="none">Firefox ${version}</h3>
+                      ${channel ? `<h4 role="none">${HTML.escape(channel)}</h4>` : ''}
+                      ${version === Browser.version ? `<h5 role="none">${_('your_version')}</h5>` : ''}
+                    </hgroup>
+                  </header>
+                  <ul>${[...$feed.querySelectorAll('entry')].map($entry => `
+                    <li>
+                      <a href="${HTML.escape($entry.querySelector('link').getAttribute('href'))}?src=firefox-extension"
+                        target="fxsitecompat">${HTML.escape($entry.querySelector('title').textContent)}</a>
+                      ${[...$entry.querySelectorAll('category')].map($cat => `
+                        <span>${HTML.escape($cat.getAttribute('term'))}</span>
+                      `).join('')}
+                    </li>
+                  `).join('')}
+                  </ul>
+                </section>
+              `;
+            }).join('')}
+          </div>
+        </div>
+      `;
     } catch (ex) {
       this.$panel.querySelector('p').innerHTML = _('feed_fetch_error');
     }
@@ -90,7 +127,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // Localize strings
   document.querySelectorAll('[data-str]').forEach($element => {
-    $element.innerHTML = browser.i18n.getMessage($element.dataset.str);
+    $element.innerHTML = _($element.dataset.str);
   });
 
   // Activate the panels

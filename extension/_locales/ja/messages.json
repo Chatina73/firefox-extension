@@ -1,4 +1,7 @@
 {
+  "locale": {
+    "message": "ja"
+  },
   "extension_name": {
     "message": "サイト互換性ツール"
   },
@@ -28,6 +31,9 @@
   },
   "feed_fetch_error": {
     "message": "ニュースフィードを読み込めませんでした。また後で試してください。"
+  },
+  "feed_fetch_offline": {
+    "message": "あなたは現在オフラインです。ニュースフィードを読み込むにはオンラインにしてください。"
   },
   "checker_tab": {
     "message": "チェッカー <small>開発中</small>"
