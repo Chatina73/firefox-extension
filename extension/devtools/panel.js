@@ -37,7 +37,7 @@ class NewsPanel {
     try {
       const $blog_feed = await this.fetch_feed('blog/index.xml');
       const versions = [...(await this.fetch_feed('versions/index.xml')).querySelectorAll('entry > title')]
-        .map($title => Number($title.textContent)).sort((a, b) => a < b).slice(0, 3);
+        .map($title => Number($title.textContent)).filter(version => !isNaN(version)).sort((a, b) => a < b).slice(0, 3);
       const version_feeds =
         await Promise.all(versions.map(version => this.fetch_feed(`versions/${version}/index.xml`)));
 
