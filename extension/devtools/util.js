@@ -46,4 +46,32 @@ class HTML {
 
     return $div.textContent;
   }
+
+  /**
+   * Sanitize a HTML string by simply disallowed tags and attributes. Note: this only supports part of tags and
+   * attributes allowed in Markdown. Simple yet powerful.
+   * @param {String} string Input string.
+   * @returns {String} Sanitized HTML string.
+   */
+  static sanitize(string) {
+    const allowed_tags = 'h1,h2,h3,h4,h5,h6,p,ul,ol,li,blockquote,pre,strong,em,code,a,img,br'.split(',');
+    const allowed_attrs = 'href,src'.split(',');
+    const $div = document.createElement('div');
+
+    $div.innerHTML = string;
+
+    for (const $element of [...$div.querySelectorAll('*')]) {
+      if (!allowed_tags.includes($element.tagName.toLowerCase())) {
+        $element.remove();
+      }
+
+      for (const { name } of [...$element.attributes]) {
+        if (!allowed_attrs.includes(name)) {
+          $element.attributes.removeNamedItem(name);
+        }
+      }
+    }
+
+    return $div.innerHTML;
+  }
 };

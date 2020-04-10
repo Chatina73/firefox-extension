@@ -48,9 +48,13 @@ class NewsPanel {
               <section>
                 <header>
                   <h3>${HTML.escape($entry.querySelector('title').textContent)}</h3>
-                  <h4>${HTML.escape(get_date($entry.querySelector('updated').textContent))}</h4>
+                  <h4>
+                    <a href="${HTML.escape($entry.querySelector('link').getAttribute('href'))}">
+                      ${HTML.escape(get_date($entry.querySelector('updated').textContent))}
+                    </a>
+                  </h4>
                 </header>
-                <p>${HTML.escape(HTML.strip_tags($entry.querySelector('content').textContent))}</p>
+                ${HTML.sanitize($entry.querySelector('content').textContent)}
               </section>
             `).join('')}
           </div>

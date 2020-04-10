@@ -232,8 +232,17 @@ a.button:active {
   margin-bottom: 16px;
 }
 
-#blog p {
+#blog p,
+#blog ul,
+#blog ol {
+  margin: 8px 0;
   line-height: 1.5;
+}
+
+#blog li {
+  margin: 4px 0 4px 16px;
+  padding: 0 0 0 4px;
+  list-style-type: initial;
 }
 
 #releases section {
