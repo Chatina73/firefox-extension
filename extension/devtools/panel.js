@@ -27,7 +27,7 @@ class NewsPanel {
   }
 
   /**
-   * Load and render news feeds for the recent 3 versions of Firefox.
+   * Load and render news feeds for the recent 3 releases of Firefox.
    */
   async init() {
     const get_date = str => (new Date(str))
@@ -36,10 +36,10 @@ class NewsPanel {
 
     try {
       const $blog_feed = await this.fetch_feed('blog/index.xml');
-      const versions = [...(await this.fetch_feed('versions/index.xml')).querySelectorAll('entry > title')]
+      const versions = [...(await this.fetch_feed('releases/index.xml')).querySelectorAll('entry > title')]
         .map($title => Number($title.textContent)).filter(version => !isNaN(version)).sort((a, b) => a < b).slice(0, 3);
-      const version_feeds =
-        await Promise.all(versions.map(version => this.fetch_feed(`versions/${version}/index.xml`)));
+      const release_feeds =
+        await Promise.all(versions.map(version => this.fetch_feed(`releases/${version}/index.xml`)));
 
       this.$panel.innerHTML = `
         <div class="row">
@@ -59,7 +59,7 @@ class NewsPanel {
             `).join('')}
           </div>
           <div id="releases">
-            ${version_feeds.map($feed => {
+            ${release_feeds.map($feed => {
               const version = Number($feed.querySelector('feed > title').textContent.match(/\d+/)[0]);
               const channel = $feed.querySelector('feed > subtitle').textContent;
 
