@@ -1,13 +1,6 @@
 /* eslint-disable indent */
 
 /**
- * Get a localized string by key.
- * @param {String} key String key that can be found in messages.json.
- * @returns {String} Localized string.
- */
-const _ = key => browser.i18n.getMessage(key);
-
-/**
  * Implement features in the News tab panel.
  */
 class NewsPanel {
@@ -128,24 +121,7 @@ class ReporterPanel {
 };
 
 window.addEventListener('DOMContentLoaded', () => {
-  const set_theme = theme => document.documentElement.dataset.theme = theme;
-
-  // Check for the DevTools theme: dark or light
-  set_theme(browser.devtools.panels.themeName);
-  browser.devtools.panels.onThemeChanged.addListener(set_theme);
-
-  // Use the user's platform info for better styling
-  document.documentElement.dataset.platform = navigator.platform;
-
-  // Localize strings
-  document.querySelectorAll('[data-str]').forEach($element => {
-    $element.innerHTML = _($element.dataset.str);
-  });
-
   // Activate the panels
   new NewsPanel();
   new ReporterPanel();
 }, { once: true });
-
-// Disable context menu
-window.addEventListener('contextmenu', event => event.preventDefault());
