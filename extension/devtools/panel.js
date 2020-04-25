@@ -30,54 +30,52 @@ class NewsPanel {
    * Load and render news feeds for the recent 3 releases of Firefox.
    */
   async init() {
-    const get_date = str => (new Date(str))
-      .toLocaleDateString(_('locale'), { year: 'numeric', month: 'long', day: 'numeric' })
-      .replace(/(\d+)年(\d+)月(\d+)日/g, '$1 年 $2 月 $3 日'); // Reformat Japanese date
-
     try {
-      const $blog_feed = await this.fetch_feed('blog/index.xml');
-      const versions = [...(await this.fetch_feed('releases/index.xml')).querySelectorAll('entry > title')]
-        .map($title => Number($title.textContent)).filter(version => !isNaN(version)).sort((a, b) => a < b).slice(0, 3);
-      const release_feeds =
-        await Promise.all(versions.map(version => this.fetch_feed(`releases/${version}/index.xml`)));
+      const blog_feed = await this.fetch_feed('blog');
+      const versions = [...(await this.fetch_feed('releases')).items.map(item => Number(item._release.version))]
+        .filter(version => !isNaN(version)).sort((a, b) => a < b).slice(0, 3);
+      const release_feeds = await Promise.all(versions.map(version => this.fetch_feed(`releases/${version}`)));
 
       this.$panel.innerHTML = `
         <div class="row">
           <div id="blog">
-            ${[...$blog_feed.querySelectorAll('entry')].slice(0, 1).map($entry => `
+            ${blog_feed.items.slice(0, 1).map(({ title, url, date_published, content_html }) => `
               <section>
                 <header>
-                  <h3>${HTML.escape($entry.querySelector('title').textContent)}</h3>
+                  <h3>${HTML.sanitize(title)}</h3>
                   <h4>
-                    <a href="${HTML.escape($entry.querySelector('link').getAttribute('href'))}">
-                      ${HTML.escape(get_date($entry.querySelector('updated').textContent))}
+                    <a href="${HTML.escape(url)}">
+                      ${HTML.escape(this.get_date(date_published))}
                     </a>
                   </h4>
                 </header>
-                ${HTML.sanitize($entry.querySelector('content').textContent)}
+                ${HTML.sanitize(content_html)}
               </section>
             `).join('')}
           </div>
           <div id="releases">
-            ${release_feeds.map($feed => {
-              const version = Number($feed.querySelector('feed > title').textContent.match(/\d+/)[0]);
-              const channel = $feed.querySelector('feed > subtitle').textContent;
-
+            ${release_feeds.map(({ items, _release: { version, channel } }) => {
               return `
                 <section>
                   <header>
                     <hgroup role="heading" aria-level="3">
                       <h3 role="none">Firefox ${version}</h3>
-                      ${channel ? `<h4 role="none">${HTML.escape(channel)}</h4>` : ''}
-                      ${version === Browser.version ? `<h5 role="none">${_('your_version')}</h5>` : ''}
+                      ${channel ? `
+                        <h4 role="none">${HTML.escape(channel)}</h4>
+                      ` : ''}
+                      ${Number(version) === Browser.version ? `
+                        <h5 role="none">${_('your_version')}</h5>
+                      ` : ''}
                     </hgroup>
                   </header>
-                  <ul>${[...$feed.querySelectorAll('entry')].map($entry => `
+                  <ul>${items.map(({ url, _title_html, _status, _categories }) => `
                     <li>
-                      <a href="${HTML.escape($entry.querySelector('link').getAttribute('href'))}?src=firefox-extension"
-                        target="fxsitecompat">${HTML.escape($entry.querySelector('title').textContent)}</a>
-                      ${[...$entry.querySelectorAll('category')].map($cat => `
-                        <span>${HTML.escape($cat.getAttribute('term'))}</span>
+                      <a href="${HTML.escape(url)}">${HTML.sanitize(_title_html)}</a>
+                      ${_status ? `
+                        <em class="status">${_status.name}</em>
+                      ` : ''}
+                      ${_categories.map(({ link, name }) => `
+                        <a href="${HTML.escape(link)}" class="category">${HTML.escape(name)}</a>
                       `).join('')}
                     </li>
                   `).join('')}
@@ -94,16 +92,26 @@ class NewsPanel {
   }
 
   /**
-   * Fetch an Atom feed from remote.
+   * Fetch a JSON feed from remote.
    * @param {String} path URL path to the feed.
-   * @returns {Promise.<XMLDocument>} Parsed XML document.
+   * @returns {Promise.<Object>} Parsed JSON document.
    */
   async fetch_feed(path) {
-    const parser = new DOMParser();
-    const response = await fetch(`${this.endpoint}${path}`);
-    const string = await response.text();
+    const response = await fetch(`${this.endpoint}${path}/index.json`);
+    const data = await response.json();
 
-    return parser.parseFromString(string, 'application/xml');
+    return data;
+  }
+
+  /**
+   * Get human-readable date label. Reformat Japanese date with spaces.
+   * @param {String} str ISO format date.
+   * @returns {String} Formatted date.
+   */
+  get_date(str) {
+    return (new Date(str))
+      .toLocaleDateString(_('locale'), { year: 'numeric', month: 'long', day: 'numeric' })
+      .replace(/(\d+)年(\d+)月(\d+)日/g, '$1 年 $2 月 $3 日');
   }
 };
 

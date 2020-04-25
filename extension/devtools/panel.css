@@ -62,6 +62,11 @@ a:focus {
   text-decoration: underline;
 }
 
+pre,
+code {
+  font-family: system-ui-monospaced, 'Segoe UI Mono', Consolas, Menlo, 'DejaVu Sans Mono', 'Droid Sans Mono', monospace;
+}
+
 p {
   line-height: 1.5;
 }
@@ -221,8 +226,27 @@ a.button:active {
   font-weight: normal;
 }
 
-#news-panel li span {
-  margin-left: 4px;
+#news-panel li {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  line-height: 1.5;
+}
+
+#news-panel li > :not(:last-child) {
+  margin-right: 8px;
+}
+
+#news-panel .status {
+  border: 1px solid var(--secondary-label-color);
+  border-radius: .2em;
+  padding: .2em .6em;
+  font-size: .8em;
+  font-style: normal;
+  vertical-align: .1em;
+}
+
+#news-panel .category {
   color: var(--secondary-label-color);
   font-size: 12px;
   white-space: nowrap;
