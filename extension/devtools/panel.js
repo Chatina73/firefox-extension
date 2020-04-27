@@ -47,35 +47,33 @@ class NewsPanel {
             `).join('')}
           </div>
           <div id="releases">
-            ${release_feeds.map(({ items, _release: { version, channel } }) => {
-              return `
-                <section>
-                  <header>
-                    <hgroup role="heading" aria-level="3">
-                      <h3 role="none">Firefox ${version}</h3>
-                      ${channel ? `
-                        <h4 role="none">${HTML.escape(channel)}</h4>
-                      ` : ''}
-                      ${Number(version) === Browser.version ? `
-                        <h5 role="none">${_('your_version')}</h5>
-                      ` : ''}
-                    </hgroup>
-                  </header>
-                  <ul>${items.map(({ url, _title_html, _status, _categories }) => `
-                    <li>
-                      <a href="${HTML.escape(url)}">${HTML.sanitize(_title_html)}</a>
-                      ${_status ? `
-                        <em class="status">${_status.name}</em>
-                      ` : ''}
-                      ${_categories.map(({ link, name }) => `
-                        <a href="${HTML.escape(link)}" class="category">${HTML.escape(name)}</a>
-                      `).join('')}
-                    </li>
-                  `).join('')}
-                  </ul>
-                </section>
-              `;
-            }).join('')}
+            ${release_feeds.map(({ items, _release: { version, channel } }) => `
+              <section>
+                <header>
+                  <hgroup role="heading" aria-level="3">
+                    <h3 role="none">Firefox ${version}</h3>
+                    ${channel ? `
+                      <h4 role="none">${HTML.escape(channel)}</h4>
+                    ` : ''}
+                    ${Number(version) === Browser.version ? `
+                      <h5 role="none">${_('your_version')}</h5>
+                    ` : ''}
+                  </hgroup>
+                </header>
+                <ul>${items.map(({ url, _title_html, _status, _categories }) => `
+                  <li>
+                    <a href="${HTML.escape(url)}">${HTML.sanitize(_title_html)}</a>
+                    ${_status ? `
+                      <em class="status">${_status.name}</em>
+                    ` : ''}
+                    ${_categories.map(({ link, name }) => `
+                      <a href="${HTML.escape(link)}" class="category">${HTML.escape(name)}</a>
+                    `).join('')}
+                  </li>
+                `).join('')}
+                </ul>
+              </section>
+            `).join('')}
           </div>
         </div>
       `;
