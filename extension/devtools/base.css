@@ -9,10 +9,12 @@
   --tab-border-color--selected: #0A84FF;
   --tab-foreground-color--selected: #156CE0;
   --button-foreground-color: #0C0C0D;
+  --button-foreground-color-inverse: #FFFFFF;
   --button-background-color: #E6E6E6;
   --button-background-color--focus: #DADADA;
   --button-background-color--active: #CECECE;
   --link-color: #0060DF;
+  --warning-color: #E081FF;
   --scrollbar-color: auto;
 }
 
@@ -27,10 +29,12 @@
   --tab-border-color--selected: #0A84FF;
   --tab-foreground-color--selected: #FFFFFF;
   --button-foreground-color: #D7D7DB;
+  --button-foreground-color-inverse: #18181A;
   --button-background-color: #4E4E51;
   --button-background-color--focus: #59595C;
   --button-background-color--active: #636367;
   --link-color: #75BFFF;
+  --warning-color: #E081FF;
   --scrollbar-color: #737373 #38383D;
 }
 
