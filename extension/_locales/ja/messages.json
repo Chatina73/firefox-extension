@@ -9,12 +9,15 @@
     "message": "FxSiteCompat"
   },
   "extension_description": {
-    "message": "Firefox の開発者ツール内で直接サイト互換性問題を把握、報告できる、ウェブ開発者のための便利なツール。"
+    "message": "Firefox の開発者ツール内で直接サイト互換性問題を把握、確認、報告できる、ウェブ開発者のための便利なツール。"
   },
   "extension_author": {
     "message": "Firefox サイト互換性ワーキンググループ"
   },
   "panel_title": {
+    "message": "互換性"
+  },
+  "sidebar_pane_title": {
     "message": "互換性"
   },
   "news_tab": {
@@ -36,10 +39,79 @@
     "message": "あなたは現在オフラインです。ニュースフィードはオンラインになってから読み込まれます。"
   },
   "checker_tab": {
-    "message": "チェッカー <small>開発中</small>"
+    "message": "チェッカー <small>ベータ</small>"
   },
-  "checker_paragraph_1": {
-    "message": "私たちがまとめてきた <a href=\"https://www.fxsitecompat.dev/ja/docs/\">850 ページ以上の記事</a> を元にしたデータセットを用いて、廃止予定となったり削除されたりした機能が使われていないかどうかなど、あなたのサイト内の潜在的な問題を発見するのに役立つサイト互換性チェッカーを開発しています。初回ベータ版は近々公開予定です！"
+  "checker_under_development_note": {
+    "message": "この互換性チェッカーは開発中であり、すべての既知の問題を表示しない可能性があります。<a href=\"https://github.com/fxsitecompat/firefox-extension/issues\">GitHub</a> を通じてフィードバックをお寄せください。"
+  },
+  "checker_unselected": {
+    "message": "互換性問題を発見するには要素を選択してください。"
+  },
+  "checker_no_issues": {
+    "message": "問題は見つかりませんでした。"
+  },
+  "checker_rerun": {
+    "message": "再確認"
+  },
+  "category_css": {
+    "message": "CSS"
+  },
+  "category_dom": {
+    "message": "DOM"
+  },
+  "category_html": {
+    "message": "HTML"
+  },
+  "category_javascript": {
+    "message": "JavaScript"
+  },
+  "category_misc": {
+    "message": "その他"
+  },
+  "category_networking": {
+    "message": "ネットワーキング"
+  },
+  "category_plugins": {
+    "message": "プラグイン"
+  },
+  "category_security": {
+    "message": "セキュリティ"
+  },
+  "category_svg": {
+    "message": "SVG"
+  },
+  "deprecated_known_removed_known": {
+    "message": "Firefox $deprecated_version$ 以降廃止予定となっており、Firefox $removed_version$ で削除されました",
+    "placeholders": {
+      "deprecated_version": {
+        "content": "$1"
+      },
+      "removed_version": {
+        "content": "$2"
+      }
+    }
+  },
+  "deprecated_unknown_removed_known": {
+    "message": "Firefox $removed_version$ で削除されました",
+    "placeholders": {
+      "removed_version": {
+        "content": "$1"
+      }
+    }
+  },
+  "deprecated_known_removed_future": {
+    "message": "Firefox $deprecated_version$ 以降廃止予定となっており、将来的に削除されます",
+    "placeholders": {
+      "deprecated_version": {
+        "content": "$1"
+      }
+    }
+  },
+  "deprecated_unknown_removed_future": {
+    "message": "廃止予定となっており、将来的に削除されます"
+  },
+  "checker_details_link": {
+    "message": "詳細"
   },
   "reporter_tab": {
     "message": "レポーター"

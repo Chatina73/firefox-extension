@@ -11,5 +11,8 @@
     "96": "/images/icon@2x.png"
   },
   "default_locale": "en_CA",
+  "background": {
+    "scripts": ["background.js"]
+  },
   "devtools_page": "/devtools/page.html"
 }

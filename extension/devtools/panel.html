@@ -23,10 +23,12 @@
       </div>
     </aria-tabpanel>
     <aria-tabpanel id="checker-panel" aria-labelledby="checker-tab">
-      <div class="text-wrapper">
-        <div>
-          <p data-str="checker_paragraph_1"></p>
-        </div>
+      <div id="checker-wrapper">
+        <div id="checker-results-wrapper"></div>
+        <footer>
+          <a role="button" class="button" id="checker-rerun" data-str="checker_rerun"></a>
+          <div class="under-development-note" data-str="checker_under_development_note"></div>
+        </footer>
       </div>
     </aria-tabpanel>
     <aria-tabpanel id="reporter-panel" aria-labelledby="reporter-tab">
@@ -53,6 +55,7 @@
     <script src="/devtools/util.js"></script>
     <script src="/devtools/widgets.js"></script>
     <script src="/devtools/base.js"></script>
+    <script src="/devtools/checker.js"></script>
     <script src="/devtools/panel.js"></script>
   </body>
 </html>

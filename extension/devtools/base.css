@@ -9,12 +9,13 @@
   --tab-border-color--selected: #0A84FF;
   --tab-foreground-color--selected: #156CE0;
   --button-foreground-color: #0C0C0D;
-  --button-foreground-color-inverse: #FFFFFF;
+  --button-foreground-color-inverse: #FFF;
   --button-background-color: #E6E6E6;
   --button-background-color--focus: #DADADA;
   --button-background-color--active: #CECECE;
   --link-color: #0060DF;
-  --warning-color: #E081FF;
+  --info-color: #0C8A00;
+  --warning-color: #B930EB;
   --scrollbar-color: auto;
 }
 
@@ -29,11 +30,12 @@
   --tab-border-color--selected: #0A84FF;
   --tab-foreground-color--selected: #FFFFFF;
   --button-foreground-color: #D7D7DB;
-  --button-foreground-color-inverse: #18181A;
+  --button-foreground-color-inverse: #000;
   --button-background-color: #4E4E51;
   --button-background-color--focus: #59595C;
   --button-background-color--active: #636367;
   --link-color: #75BFFF;
+  --info-color: #86DD68;
   --warning-color: #E081FF;
   --scrollbar-color: #737373 #38383D;
 }
@@ -132,18 +134,6 @@ aria-tab * {
   pointer-events: none;
 }
 
-aria-tab small {
-  display: inline-block;
-  margin-left: 8px;
-  border: 1px solid var(--secondary-label-color);
-  border-radius: 4px;
-  padding: 1px 3px;
-  color: var(--secondary-label-color);
-  font-size: 9px;
-  vertical-align: 2px;
-  text-transform: uppercase;
-}
-
 aria-tabpanel {
   flex: auto;
   overflow: auto;
@@ -199,6 +189,64 @@ a.button:active {
 
 .row > * {
   flex: auto;
+}
+
+.under-development-note {
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.under-development-note a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+#checker-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+#checker-results-wrapper {
+  flex: auto;
+}
+
+#checker-results-wrapper h2 {
+  border-width: 1px 0;
+  border-style: solid;
+  border-color: var(--primary-border-color);
+  padding: 4px 8px;
+  background-color: var(--tab-background-color--hover);
+  font-size: 12px;
+  font-weight: normal;
+}
+
+#checker-results-wrapper section:first-of-type h2 {
+  border-top-width: 0;
+}
+
+#checker-results-wrapper ul.results {
+  margin: 16px;
+}
+
+#checker-results-wrapper ul.results li {
+  margin: 8px 0;
+  line-height: 1.5;
+}
+
+#checker-wrapper > footer {
+  flex: none;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid var(--primary-border-color);
+  padding: 16px;
+  background-color: var(--tab-background-color--hover);
+}
+
+#checker-wrapper > footer > a.button {
+  flex: none;
+  display: block;
+  margin-right: 16px;
 }
 
 @media (min-width: 1024px) {

@@ -107,6 +107,38 @@ class NewsPanel {
 };
 
 /**
+ * Implement features in the Checker tab panel.
+ */
+class CheckerPanel {
+  /**
+   * Initialize the new CheckerPanel instance.
+   */
+  constructor() {
+    this.$tab = document.querySelector('#checker-tab');
+    this.$panel = document.querySelector('#checker-panel');
+
+    // Run a test when the Checker tab is selected
+    this.$tab.addEventListener('selected', () => {
+      CompatibilityChecker.test({ all: true });
+    });
+
+    // Run a test when the Check Again button is clicked
+    document.querySelector('#checker-rerun').addEventListener('click', event => {
+      event.preventDefault();
+      CompatibilityChecker.test({ all: true });
+    });
+
+    // Run a test when the current browser tab is updated
+    /** @todo Investigate why this is not working */
+    browser.runtime.onMessage.addListener(({ status }, sender) => {
+      if (status === 'tab_loaded') {
+        CompatibilityChecker.test({ all: true });
+      }
+    });
+  }
+};
+
+/**
  * Implement features in the Reporter tab panel.
  */
 class ReporterPanel {
@@ -121,5 +153,6 @@ class ReporterPanel {
 window.addEventListener('DOMContentLoaded', () => {
   // Activate the panels
   new NewsPanel();
+  new CheckerPanel();
   new ReporterPanel();
 }, { once: true });

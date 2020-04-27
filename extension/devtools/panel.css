@@ -85,6 +85,18 @@
   flex: none;
 }
 
+#checker-tab small {
+  display: inline-block;
+  margin-left: 8px;
+  border-radius: 4px;
+  padding: 1px 4px;
+  color: var(--button-foreground-color-inverse);
+  background-color: var(--info-color);
+  font-size: 9px;
+  vertical-align: 2px;
+  text-transform: uppercase;
+}
+
 @media (min-width: 1024px) {
   #news-panel .row {
     flex-direction: row-reverse;

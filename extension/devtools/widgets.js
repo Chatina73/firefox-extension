@@ -27,6 +27,10 @@ class Tab extends HTMLElement {
     this.tabIndex = selected ? 0 : -1;
     this.setAttribute('aria-selected', selected);
     this.tabpanel.setAttribute('aria-hidden', !selected);
+
+    if (selected) {
+      this.dispatchEvent(new CustomEvent('selected'));
+    }
   }
 
   /**

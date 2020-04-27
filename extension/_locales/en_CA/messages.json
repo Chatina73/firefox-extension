@@ -9,12 +9,15 @@
     "message": "FxSiteCompat"
   },
   "extension_description": {
-    "message": "A handy tool for web developers to learn and report site compatibility issues directly within Firefox Developer Tools."
+    "message": "A handy tool for web developers to learn, check and report site compatibility issues directly within Firefox Developer Tools."
   },
   "extension_author": {
     "message": "Firefox Site Compatibility WG"
   },
   "panel_title": {
+    "message": "Compatibility"
+  },
+  "sidebar_pane_title": {
     "message": "Compatibility"
   },
   "news_tab": {
@@ -36,10 +39,79 @@
     "message": "You’re currently offline. The news feed will be loaded after going online."
   },
   "checker_tab": {
-    "message": "Checker <small>In Development</small>"
+    "message": "Checker <small>Beta</small>"
   },
-  "checker_paragraph_1": {
-    "message": "Given a dataset based on our <a href=\"https://www.fxsitecompat.dev/en-CA/docs/\">850+ articles</a>, we are developing a site compatibility checker that helps you find potential issues on your site, including use of deprecated or removed features. The first beta version is coming soon!"
+  "checker_under_development_note": {
+    "message": "This compatibility checker is under development, and it may not show all known issues. Give us feedback via <a href=\"https://github.com/fxsitecompat/firefox-extension/issues\">GitHub</a>."
+  },
+  "checker_unselected": {
+    "message": "Select an element to find the compatibility issues."
+  },
+  "checker_no_issues": {
+    "message": "No issues found."
+  },
+  "checker_rerun": {
+    "message": "Check Again"
+  },
+  "category_css": {
+    "message": "CSS"
+  },
+  "category_dom": {
+    "message": "DOM"
+  },
+  "category_html": {
+    "message": "HTML"
+  },
+  "category_javascript": {
+    "message": "JavaScript"
+  },
+  "category_misc": {
+    "message": "Miscellaneous"
+  },
+  "category_networking": {
+    "message": "Networking"
+  },
+  "category_plugins": {
+    "message": "Plug-ins"
+  },
+  "category_security": {
+    "message": "Security"
+  },
+  "category_svg": {
+    "message": "SVG"
+  },
+  "deprecated_known_removed_known": {
+    "message": "deprecated since Firefox $deprecated_version$, removed with Firefox $removed_version$",
+    "placeholders": {
+      "deprecated_version": {
+        "content": "$1"
+      },
+      "removed_version": {
+        "content": "$2"
+      }
+    }
+  },
+  "deprecated_unknown_removed_known": {
+    "message": "removed with Firefox $removed_version$",
+    "placeholders": {
+      "removed_version": {
+        "content": "$1"
+      }
+    }
+  },
+  "deprecated_known_removed_future": {
+    "message": "deprecated since Firefox $deprecated_version$, will be removed in the future",
+    "placeholders": {
+      "deprecated_version": {
+        "content": "$1"
+      }
+    }
+  },
+  "deprecated_unknown_removed_future": {
+    "message": "deprecated, will be removed in the future"
+  },
+  "checker_details_link": {
+    "message": "details"
   },
   "reporter_tab": {
     "message": "Reporter"
