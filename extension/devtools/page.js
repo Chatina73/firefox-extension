@@ -4,6 +4,14 @@
   const icon = `/devtools/icon-check-${browser.devtools.panels.themeName}.svg`;
   const page = '/devtools/panel.html';
   const panel = await browser.devtools.panels.create(title, icon, page);
+
+  panel.onShown.addListener(() => {
+    browser.runtime.sendMessage({ status: 'panel:opened' });
+  });
+
+  panel.onHidden.addListener(() => {
+    browser.runtime.sendMessage({ status: 'panel:closed' });
+  });
 })();
 
 // Create the Compatibility sidebar pane within the Inspector panel

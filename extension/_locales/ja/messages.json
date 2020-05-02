@@ -47,6 +47,9 @@
   "checker_unselected": {
     "message": "互換性問題を発見するには要素を選択してください。"
   },
+  "checker_loading": {
+    "message": "読み込み中..."
+  },
   "checker_no_issues": {
     "message": "問題は見つかりませんでした。"
   },

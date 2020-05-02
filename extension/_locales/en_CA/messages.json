@@ -47,6 +47,9 @@
   "checker_unselected": {
     "message": "Select an element to find the compatibility issues."
   },
+  "checker_loading": {
+    "message": "Loading..."
+  },
   "checker_no_issues": {
     "message": "No issues found."
   },

@@ -129,9 +129,18 @@ class CheckerPanel {
     });
 
     // Run a test when the current browser tab is updated
-    /** @todo Investigate why this is not working */
     browser.runtime.onMessage.addListener(({ status }, sender) => {
-      if (status === 'tab_loaded') {
+      if (sender.id !== browser.runtime.id) {
+        return;
+      }
+
+      if (status === 'tab:loading') {
+        document.querySelector('#checker-results-wrapper').innerHTML = `
+          <ul class="results"><li><em>${_('checker_loading')}</em></li></ul>
+        `;
+      }
+
+      if (status === 'tab:complete') {
         CompatibilityChecker.test({ all: true });
       }
     });
