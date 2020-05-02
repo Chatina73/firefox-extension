@@ -119,30 +119,16 @@ class CheckerPanel {
 
     // Run a test when the Checker tab is selected
     this.$tab.addEventListener('selected', () => {
-      CompatibilityChecker.test({ all: true });
+      if (!this.checker) {
+        this.checker = new CompatibilityChecker({ check_page: true });
+        this.checker.test();
+      }
     });
 
     // Run a test when the Check Again button is clicked
     document.querySelector('#checker-rerun').addEventListener('click', event => {
       event.preventDefault();
-      CompatibilityChecker.test({ all: true });
-    });
-
-    // Run a test when the current browser tab is updated
-    browser.runtime.onMessage.addListener(({ status }, sender) => {
-      if (sender.id !== browser.runtime.id) {
-        return;
-      }
-
-      if (status === 'tab:loading') {
-        document.querySelector('#checker-results-wrapper').innerHTML = `
-          <ul class="results"><li><em>${_('checker_loading')}</em></li></ul>
-        `;
-      }
-
-      if (status === 'tab:complete') {
-        CompatibilityChecker.test({ all: true });
-      }
+      this.checker.test();
     });
   }
 };

@@ -50,6 +50,9 @@
   "checker_loading": {
     "message": "Loading..."
   },
+  "checker_testing": {
+    "message": "Testing..."
+  },
   "checker_no_issues": {
     "message": "No issues found."
   },

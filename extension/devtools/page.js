@@ -21,4 +21,12 @@
   const sidebar_pane = await browser.devtools.panels.elements.createSidebarPane(title);
 
   sidebar_pane.setPage(page);
+
+  sidebar_pane.onShown.addListener(() => {
+    browser.runtime.sendMessage({ status: 'sidebar:opened' });
+  });
+
+  sidebar_pane.onHidden.addListener(() => {
+    browser.runtime.sendMessage({ status: 'sidebar:closed' });
+  });
 })();
