@@ -84,9 +84,9 @@ export class CompatibilityChecker {
 
     this.data = this.data || await this.get_data();
 
-    for (const { title, description, category, expression, selector, deprecated, removed, document } of this.data) {
-      if (selector || expression) {
-        const [result] = await this.evaluate({ expression, selector });
+    for (const { title, description, category, dom, deprecated, removed, document } of this.data) {
+      if (dom) {
+        const [result] = await this.evaluate(dom);
 
         if (result !== true) {
           continue;
