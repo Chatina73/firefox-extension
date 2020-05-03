@@ -1,3 +1,5 @@
+import { CompatibilityChecker } from './checker.js';
+
 /**
  * Implement features in the Compatibility sidebar tab in the Inspector panel.
  */

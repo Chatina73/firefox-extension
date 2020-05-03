@@ -1,5 +1,9 @@
 /* eslint-disable indent */
 
+import { _, HTML, Browser } from '../util.js';
+import { Tab, TabList, TabPanel } from '../widgets.js';
+import { CompatibilityChecker } from './checker.js';
+
 /**
  * Implement features in the News tab panel.
  */

@@ -1,7 +1,7 @@
 /**
  * Implement a tab widget.
  */
-class Tab extends HTMLElement {
+export class Tab extends HTMLElement {
   /**
    * Called once the element is added to the document.
    */
@@ -45,7 +45,7 @@ class Tab extends HTMLElement {
 /**
  * Implement a tablist widget.
  */
-class TabList extends HTMLElement {
+export class TabList extends HTMLElement {
   /**
    * Called once the element is added to the document.
    */
@@ -129,7 +129,7 @@ class TabList extends HTMLElement {
 /**
  * Implement a tabpanel widget.
  */
-class Tabpanel extends HTMLElement {
+export class TabPanel extends HTMLElement {
   /**
    * Called once the element is added to the document.
    */
@@ -142,4 +142,4 @@ class Tabpanel extends HTMLElement {
 
 window.customElements.define('aria-tab', Tab);
 window.customElements.define('aria-tablist', TabList);
-window.customElements.define('aria-tabpanel', Tabpanel);
+window.customElements.define('aria-tabpanel', TabPanel);

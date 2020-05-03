@@ -1,9 +1,11 @@
 /* eslint-disable indent */
 
+import { _, HTML } from '../util.js';
+
 /**
  * Implement the compatibility checker.
  */
-class CompatibilityChecker {
+export class CompatibilityChecker {
   /**
    * Initialize a new CompatibilityChecker instance.
    * @param {Boolean} [check_page] Whether to run against all the element on the current page.

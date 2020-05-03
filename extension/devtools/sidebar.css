@@ -1,3 +1,5 @@
+@import 'base.css';
+
 body {
   background-color: var(--panel-background-color);
 }
